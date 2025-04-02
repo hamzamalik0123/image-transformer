@@ -6,25 +6,7 @@ type TransformationOptions = {
   crop?: 'fill' | 'fit' | 'scale' | 'thumb' | 'crop' | 'limit';
   aspect_ratio?: string;
   gravity?: 'center' | 'face' | 'faces' | 'north' | 'south' | 'east' | 'west';
-  zoom?: number;
-  x?: number;
-  y?: number;
-  format?: 'jpg' | 'jpeg' | 'png' | 'webp' | 'gif' | 'avif';
-  quality?: number | 'auto';
-  radius?: number | 'max';
-  angle?: number;
-  effect?: string;
-  opacity?: number;
-  border?: string;
-  background?: string;
-  overlay?: string;
-  underlay?: string;
-  default_image?: string;
-  delay?: number;
-  color?: string;
-  dpr?: number | 'auto';
-  flags?: string[];
-  transformation?: string;
+  blur?: number;
 };
 
 export class ImageBuilder {
@@ -47,53 +29,18 @@ export class ImageBuilder {
     return this;
   }
 
-  format(type: TransformationOptions['format']): this {
-    this.transformations.format = type;
+  aspectRatio(aspectRatio: string): this {
+    this.transformations.aspect_ratio = aspectRatio;
     return this;
   }
 
-  quality(value: TransformationOptions['quality']): this {
-    this.transformations.quality = value;
+  gravity(gravity: TransformationOptions['gravity']): this {
+    this.transformations.gravity = gravity;
     return this;
   }
 
-  gravity(value: TransformationOptions['gravity']): this {
-    this.transformations.gravity = value;
-    return this;
-  }
-
-  angle(value: number): this {
-    this.transformations.angle = value;
-    return this;
-  }
-
-  background(value: string): this {
-    this.transformations.background = value;
-    return this;
-  }
-
-  effect(value: string): this {
-    this.transformations.effect = value;
-    return this;
-  }
-
-  overlay(value: string): this {
-    this.transformations.overlay = value;
-    return this;
-  }
-
-  radius(value: number | 'max'): this {
-    this.transformations.radius = value;
-    return this;
-  }
-
-  flags(value: string[]): this {
-    this.transformations.flags = value;
-    return this;
-  }
-
-  dpr(value: number | 'auto'): this {
-    this.transformations.dpr = value;
+  blur(blur: number): this {
+    this.transformations.blur = blur;
     return this;
   }
 
